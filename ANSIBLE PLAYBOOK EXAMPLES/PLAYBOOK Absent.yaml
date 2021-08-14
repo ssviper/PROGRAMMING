@@ -1,0 +1,24 @@
+---
+
+- name: General Config
+
+  hosts: routers
+
+  tasks:
+
+  - name: Add Banner
+
+    ios_banner: 
+      banner: login
+      text: |
+          ***************************  
+          Loud & Proud since 1974 !!! 
+          Kiss (Gene,Paul,Ace,Peter)
+          ***************************  
+      state: absent
+
+  - name: Add Loopback
+
+    ios_interface:
+      name: Loopback69
+      state: absent

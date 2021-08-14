@@ -1,0 +1,72 @@
+---
+
+- name: Play 1 General Config
+
+  hosts: networkdevices
+
+  gather_facts: no
+
+  tasks:
+
+  - name: Add Banner
+
+    ios_banner: 
+      banner: login
+      text: |
+          ****************************  
+          Loud & Proud since 1974 !!!!
+          Kiss (Gene,Paul,Ace,Peter)
+          ****************************  
+      state: absent
+
+  - name: Add Loopback
+
+    ios_interface:
+      name: Loopback69
+      state: absent
+
+  - name: Disable DNS lookup
+  
+    ios_system:
+      lookup_enabled: True
+  
+- name: Play 2 Router Config
+
+  hosts: routers
+
+  gather_facts: no
+
+  tasks:
+
+  - name: Access Lists
+
+    ios_config: 
+      lines:
+
+        - no ip access-list extended KISSTORY
+      
+- name: Play 3 Switch Config
+
+  hosts: switches
+
+  gather_facts: no
+
+  tasks:
+
+  - name: Create Vlan
+
+    ios_vlan:
+
+       vlan_id: 1974
+
+       state: absent  
+       
+  - name: Put GigabitEther1/0/19 back to Vlan 1
+  
+    ios_vlan:
+       
+       vlan_id: 1
+
+       interfaces:
+
+       - GigabitEthernet1/0/19

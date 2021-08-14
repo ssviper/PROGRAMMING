@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<user xmlns="myapp">
+<user>
+  <name>john</name>
+  <location>
+    <city>Austin</city>
+    <state>TX</state>
+  </location>
+  <roles>admin</roles>
+  <roles>user</roles>
+</user>

@@ -1,0 +1,68 @@
+# (Step 1) Enter the Python Shell 
+
+python
+
+# (Step 2) Then create a dictionary called neighbor 
+
+neighbor = {'hostname': 'nxos2', 'os': 'nx-os', 'model': '9396'}
+
+# (Step 3) Then type the following 
+
+type(neighbor)
+
+# You should see the output below
+
+<type 'dict'>
+
+# Then type the following
+
+print (json.dumps(neighbor, indent=4)
+
+<type 'dict'>
+
+# (Step 4) Then type the following to import the json module and dump the dictionary # called neighbors as a JSON string.  
+
+import jason
+
+print json.dumps(neighbor, indent=4)   
+{
+    "model": "9396", 
+    "hostname": "nxos2",
+    "os": "nx-os"
+}
+
+# (Step 5) Save the object being dumped as a new variable called data.  Print data and then check its data type using the type function.
+
+data = json.dumps(neighbor, indent=4)
+
+# First print it as a string literal
+
+data
+
+# You should see the following output
+
+'{\n    "model": "9396", \n    "hostname": "nxos2", \n    "os": "nx-os"\n}'
+
+# Now use the print statement
+
+print data
+
+# You should see the following output
+
+{
+    "model": "9396",
+    "hostname": "nxos2",
+    "os": "nx-os"
+}
+
+# (Step 6) Use the json.loads() functions to load JSON string and make it a dictionary.  Type the following.
+
+data_dict = json.loads(data)
+data_dict['os']
+print data_dict['os']
+
+# You should see the following.
+
+nx-os
+
+

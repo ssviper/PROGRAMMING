@@ -1,0 +1,17 @@
+{
+    "ins_api": {
+        "type": "cli_show",
+        "version": "1.2",
+        "sid": "eoc",
+        "outputs": {
+            "output":{
+                "input": "show hostname",
+                "msg": "Success",
+                "code": "200",
+                "body": {
+                    "hostname": "nxosv.cisco.com"
+                }
+            }
+        }
+    }
+}

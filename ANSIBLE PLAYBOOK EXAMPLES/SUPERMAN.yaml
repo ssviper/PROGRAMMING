@@ -1,0 +1,59 @@
+---
+
+- name: Play 1 General Config
+  hosts: networkdevices
+  gather_facts: no
+
+  tasks:
+  - name: Add Banner
+    ios_banner: 
+      banner: login
+      text: |
+          ****************************  
+          Loud & Proud since 1974 !!!!
+          Kiss (Gene,Paul,Ace,Peter)
+          ****************************  
+      state: present
+
+  - name: Add Loopback
+    cisco.ios.ios_interface:
+      name: Loopback69
+      state: present
+
+  - name: Disable DNS lookup
+    ios_system:
+      lookup_enabled: False
+  
+- name: Play 2 Router Config
+  hosts: routers
+  gather_facts: no
+
+  tasks:
+  - name: Access Lists
+    cisco.ios.ios_config: 
+      lines:
+        - permit ip host 192.168.0.1 any log
+        - permit ip host 192.168.0.2 any log
+        - permit ip host 192.168.0.3 any log
+        - permit ip host 192.168.0.4 any log
+        - permit ip host 192.168.0.5 any log
+      parents: ip access-list extended KISSTORY
+      before: no ip access-list extended KISSTORY
+      match: exact
+
+- name: Play 3 Switch Config
+  hosts: switches
+  gather_facts: no
+
+  tasks:
+  - name: Create Vlan
+    cisco.ios.ios_vlan:
+      vlan_id: 1974
+      name: KISS
+      state: present
+      
+  - name: Add Interface/s to VLAN
+    cisco.ios.ios_vlan: 
+      vlan_id: 1974
+      interfaces:
+      - GigabitEthernet1/0/19

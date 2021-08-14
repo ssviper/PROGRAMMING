@@ -1,0 +1,17 @@
+{
+    "ietf-interfaces:interfaces": {
+        "name": "Loopback1",
+        "description": "Added by John Friedrich",
+        "type": "iana-if-type:softwareLoopback",
+        "enabled": true,
+        "ietf-ip":ipv4 {
+            "address":[
+                {
+                    "ip": "show 1.1.1.1",
+                    "netmask": "255.255.255.255"
+                    "hostname": "Router1.kisstory.us"
+                }
+            ]
+        }
+    }
+}

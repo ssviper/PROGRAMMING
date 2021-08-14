@@ -1,0 +1,27 @@
+# Make sure you go to this directory
+
+PS C:\Users\cisco\OneDrive\Documents\Visual_Studio_Code\NPDESI>
+
+# Then type 
+
+python
+
+# Then type
+
+from CSCO.nexus.device import Device
+dev = Device()
+print (dev)
+
+# You should see the following output
+
+This is a nexus
+
+# Then type the following
+
+from CSCO.catalyst.device import Device
+dev = Device()
+print (dev)
+
+# You should see the following output
+
+This is a Catalyst
