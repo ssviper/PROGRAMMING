@@ -1,10 +1,10 @@
 import re
 class ConfigurationParser:
-    deviceConfig = open("config.txt".read())
+    deviceConfig = open("config.txt", "r".read()
     def parseCustomerNames(self):...
     def parseCustomerVlan(self, customerName):
         intPattern = (
-            r"interface GigabitEthernet0\/0\.([0-9]+)\n encapsulation "
+            r"interface GigabitEthernet0\/0\. ([0-9]+)\n encapsulation "
             r"dot1Q [0-9]+\n ip vrf forwarding %s"
             % (customerName)
         )
@@ -19,5 +19,5 @@ class TestParse(unittest.TestCase):
         cp = ConfigurationParser()
         customer_name = "CUSTOMER_A"
         expected_vlan = 100
-        parsed_vlan = cp.parseCustomerVlan(customer_name)
+        parsed_ip = cp.parseCustomerVlan(customer_name)
         self.assertEqual(expected_vlan, parsed_vlan)
