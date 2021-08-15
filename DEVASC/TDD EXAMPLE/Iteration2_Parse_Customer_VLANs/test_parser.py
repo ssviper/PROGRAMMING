@@ -1,3 +1,15 @@
+import re
+
+class ConfigurationParser:
+    deviceConfig = open("config.txt", "r").read()
+    def parseCustomerNames(self):...
+    def parseCustomerVlan(self, customerName):...
+    def parseCustomerIPAddress(self, vlan): ...
+        deviceConfig = open("config.txt", "r").read()
+        customerNamePattern = r'ip vrf ([a-zA-Z_]+)\n'
+        customerNames = re.findall(customerNamePattern, self.deviceConfig)
+        return customerNames
+
 import unittest
 
 class TestParse(unittest.TestCase):
@@ -9,15 +21,3 @@ class TestParse(unittest.TestCase):
         parsed_names = cp.parseCustomerNames()
         self.assertEqual(list, type(parsed_names))
         self.assertEqual(expected_names, parsed_names)
-
-import re
-
-class ConfigurationParser:
-    deviceConfig = open("config.txt", "r").read()
-    def parseCustomerNames(self):...
-    def parseCustomerVlan(self, customerName):...
-    def parseCustomerIPAddress(self, vlan): ...
-        deviceConfig = open("config.txt", "r").read()
-        customerNamePattern = r'ip vrf ([a-zA-Z_]+)\n'
-        customerNames = re.findall(customerNamePattern, self.deviceConfig)
-        return customerNames        
