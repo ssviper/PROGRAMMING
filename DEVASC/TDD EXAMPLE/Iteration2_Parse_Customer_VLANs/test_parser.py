@@ -1,6 +1,6 @@
 import re
 class ConfigurationParser:
-    deviceConfig = open("config.txt"), "r".read()
+    deviceConfig = open("config.txt","r") .read()
     def parseCustomerNames(self):...
     def parseCustomerVlan(self, customerName):
         intPattern = (
