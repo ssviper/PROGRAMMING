@@ -1,6 +1,6 @@
 import re
 class ConfigurationParser:
-    deviceConfig = open("config.txt", "r".read()
+    deviceConfig = open("config.txt"), "r".read()
     def parseCustomerNames(self):...
     def parseCustomerVlan(self, customerName):
         intPattern = (
@@ -19,5 +19,5 @@ class TestParse(unittest.TestCase):
         cp = ConfigurationParser()
         customer_name = "CUSTOMER_A"
         expected_vlan = 100
-        parsed_ip = cp.parseCustomerVlan(customer_name)
+        parsed_vlan = cp.parseCustomerVlan(customer_name)
         self.assertEqual(expected_vlan, parsed_vlan)
