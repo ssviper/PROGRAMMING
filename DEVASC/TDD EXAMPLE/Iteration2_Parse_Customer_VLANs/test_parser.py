@@ -1,7 +1,9 @@
 import unittest
 
 class TestParse(unittest.TestCase):
-    def test_parse_cust_name(self):
+    def test_parse_cust_name(self):...
+    def test_parse_cust_vlan(self):...
+    def test_parse_cust_ip_address(self):...
         cp = ConfigurationParser()
         expected_names = ['CUSTOMER_A', 'CUSTOMER_B']
         parsed_names = cp.parseCustomerNames()
@@ -12,7 +14,9 @@ import re
 
 class ConfigurationParser:
     deviceConfig = open("config.txt", "r").read()
-    def parseCustomerNames(self):
+    def parseCustomerNames(self):...
+    def parseCustomerVlan(self, customerName):...
+    def parseCustomerIPAddress(self, vlan): ...
         deviceConfig = open("config.txt", "r").read()
         customerNamePattern = r'ip vrf ([a-zA-Z_]+)\n'
         customerNames = re.findall(customerNamePattern, self.deviceConfig)
