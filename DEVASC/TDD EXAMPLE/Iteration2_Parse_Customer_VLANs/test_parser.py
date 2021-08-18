@@ -17,7 +17,7 @@ class TestParse(unittest.TestCase):
     def test_parse_cust_name(self):...
     def test_parse_cust_vlan(self):
         cp = ConfigurationParser()
-        customer_name = "CUSTOMER_Z"
+        customer_name = "CUSTOMER_A"
         expected_vlan = 100
         parsed_vlan = cp.parseCustomerVlan(customer_name)
         self.assertEqual(expected_vlan, parsed_vlan)
